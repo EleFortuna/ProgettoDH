@@ -1,0 +1,239 @@
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+        }   
+     
+
+ /* stile header*/ 
+        header {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: #123;
+          color: white;
+          min-height: 20vh;
+          padding: 0px;
+        }
+
+
+        .header {
+          overflow: hidden;
+          background-color: #0b1622;
+          padding: 10px 20px;
+        }
+
+        .header a {
+          float: left;
+          color: rgb(255, 255, 255);
+          text-align: center;
+          padding: 12px;
+          margin-right: 10px;
+          text-decoration: none;
+          font-size: 18px;
+          line-height: 25px;
+          border-radius: 4px;
+          color: white; /* Colore normale della parola */
+	cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+	
+        }
+
+
+        .header-right {
+          float: right;
+          display: flex;
+          align-items: center;
+        }
+                
+a:hover {
+text-decoration: underline; /* Sottolinea la parola */
+        }
+/* fine stile header*/
+
+
+.button-container
+{
+	position: relative;
+	top: -20px;
+}
+.clickable-button {
+    cursor: pointer; /* Imposta il cursore a forma di mano per indicare che il pulsante è cliccabile */
+    padding: 20px 30px; /* Aggiungi spazio intorno al testo del pulsante per una migliore esperienza utente */
+    border-radius: 5px;
+    background-color: white; /* Imposta il colore di sfondo del pulsante */
+    border: none; /* Rimuovi il bordo del pulsante */
+    color: #99ccff; /* Imposta il colore del testo del pulsante */
+    text-align: center; /* Centra il testo all'interno del pulsante */
+    text-decoration: none; /* Rimuovi eventuali sottolineature del testo del pulsante */
+    display: block; /* Assicura che il pulsante si adatti al testo all'interno di esso */
+    margin-right: 30px
+}
+
+.clickable-button:visited {
+    color: blue; /* Cambia il colore di sfondo del pulsante quando il mouse si trova sopra di esso */
+}
+
+
+.clickable-button:hover {
+    background-color: orange; /* Cambia il colore di sfondo del pulsante quando il mouse si trova sopra di esso */
+}
+
+.search-container {
+    text-align: center; /* Centra il contenuto della barra di ricerca */
+    margin-top: 20px
+    padding: 50px 20px 20px 20px; /* Aggiunge spazio sopra la barra di ricerca */
+}
+
+/* qui si inseriscono codici per mettere una search bar*/
+input[type="text"] {
+    padding: 8px; /* Aggiunge spazio intorno al campo di input */
+    border-radius: 5px; /* Aggiunge angoli arrotondati al campo di input */
+    border: 1px solid #ccc; /* Aggiunge un bordo grigio chiaro al campo di input */
+}
+
+button[type="submit"] {
+    padding: 8px 0px; /* Aggiunge spazio intorno al pulsante */
+    border: none; /* Rimuove il bordo del pulsante */
+    border-radius: 5px; /* Aggiunge angoli arrotondati al pulsante */
+    background-color: #4CAF50; /* Imposta il colore di sfondo del pulsante */
+    color: white; /* Imposta il colore del testo del pulsante */
+    cursor: pointer; /* Imposta il cursore a forma di mano quando il mouse passa sopra il pulsante */
+}
+/*fine della search bar*/
+
+
+/* fine stile header*/
+
+/* decorazione cards*/
+
+.container_fluid {
+	display: flex;
+	justify-content: space-between; /* Distribuisci uniformemente gli elementi lungo l'asse principale*/
+	flex-wrap: wrap; /* Consenti l'avvolgimento degli elementi se non ci sono abbastanza spazi */
+}
+
+.clickable-word {
+	color: white; /* Colore normale della parola */
+	cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+	text-decoration: underline; /* Sottolinea la parola */
+}
+
+
+/* Stile per la parola dopo l'hover */
+.clickable-word:hover {
+	color: #ff5050; /* Cambia il colore della parola dopo l'hover */
+}
+
+.colonna {
+	display: flex;
+	}
+
+.col1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	align-items: center;
+	text-align: center;
+	padding-top: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #123; /* Colore di sfondo colonna sinistra */
+
+}
+
+.highlight {
+	color: lightblue ;
+}
+
+.col2 {
+	flex: 2; /* Occupa il doppio dello spazio della colonna sinistra */
+	 /* Colore di sfondo colonna destra */
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	
+
+}
+
+.card {
+	margin: 5px; 
+	padding: 10px; 
+	border: 1px solid #ccc;  
+	background-color: white;
+	float: left;
+} 
+
+.card:hover {
+	transform: scale(1.1);
+	transition: transform 0.3s ease;
+
+}
+/* fine decorazione */
+
+/* in questo modo ho dato un ordine cronologico alle opere MA io vorrei che questo ordine apparisse solo quando clicco un certo tasto 
+.cards {
+  display: flex;
+  flex-direction: horizontal;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card time {
+  font-style: italic;
+}
+
+/* Ordinamento cronologico 
+.card{
+  order: 1; /* Default order 
+}
+
+.card:nth-child(1) {
+  order: 2; /* Ultima opera 
+}
+
+.card:nth-child(2) {
+  order: 3; /* Penultima opera 
+}
+
+.card:nth-child(3) {
+	order: 1; /* Prima opera */
+
+
+	/* fine ordine cronologico*/
+
+	footer {
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #123;
+		color: white;
+		padding: 40px 0;
+	}
+
+	.container3 {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.logo-section img {
+		width: 100px;
+		margin-right: 20px;
+	}
+
+	.contact-section {
+		text-align: right;
+	}
+
+	.contact-section h3 {
+		margin-bottom: 10px;
+	}
+
+	.contact-section p {
+		margin: 5px 0;
+	}
+
+	.copyright p {
+		align-content: center;
+		margin-right: 350px;
+		text-align: center;
+
+	}

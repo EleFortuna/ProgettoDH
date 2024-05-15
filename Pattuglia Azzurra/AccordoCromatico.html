@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Accordo Cromatico</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="AccordoCromatico.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Collegamento all'icona della lente di ingrandimento per la search bar -->
+	<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"> <!--abbiamo qui specificato il link che tagghi il set degli elementi DC-->
+	<meta name="DC.Title" content="La Pattuglia Azzurra">
+	<meta name="DC.Creator" content="Eleonora Fortuna">
+	<meta name="DC.Subject" content="Arte futurista del primo Novecento in Toscana">
+	<meta name="DC.Description" content="Questo sito si propone di raccogliere informazioni legate al gruppo futurista fiorentino della Pattuglia Azzurra.">
+	<meta name="DC.Publisher" content="Università di Bologna">
+	<meta name="DC.Date" content="2023">
+	<meta name="DC.Type" content="Sito Web">
+	<meta name="DC.Type" content="Immagini">
+	<meta name="DC.Type" content="Catalogo di opere d'arte">
+	<meta name="DC.Format" content="HTML">
+	<meta name="DC.Language" content="Italiano">
+	<meta name="DC.Coverage" content="1914-1916">
+	<meta name="DC.Coverage" content="Firenze">
+	<meta name="DC.Coverage" content="Toscana">
+	<meta name="DC.Rights" content="Accesso Libero Creative Commons"></head>
+	<body>
+   <script src="opere.js"></script>
+
+   <header>
+    <div class="header">
+
+      <a href="index.html" target="_blank">La Pattuglia azzurra </a> 
+
+      <div class="header-right">
+        <a href="GliArtisti.html" target="_blank">Gli artisti</a>
+        <a href= "OperePattuglia.html" target="_blank">Le opere</a>
+        <a href="">I manifesti</a>
+        <a href="">I luoghi</a>
+
+
+        <div class="search-container">
+         <form action="/action_page.php"></form>
+         <input type="text" class="search-input" placeholder="Cerca...">
+         <i class="fas fa-search search-icon"></i> <!--Icona della lente d'ingrandimento -->
+       </div>
+
+     </div>
+
+   </div>
+ </header>
+</head>
+
+<body>
+
+
+
+
+  <section style="text-align: center;">
+
+    <h2 class="titolo">Accordo cromatico</h2>
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-md-4">
+          <!-- tentativo tabella -->
+          <table>
+            <tr>
+              <th> Tipo di oggetto:</th>
+              <td> Quadro</td>
+            </tr>
+            <tr>
+              <th>Materiali e tecniche:</th>
+              <td>Acquerello su carta</td>
+            </tr>
+            <tr>
+              <th>Dimensioni:</th>
+              <td>cm 16,5x21</td>
+            </tr>
+            <tr>
+              <th>Iscrizione e segni particolari:</th>
+              <td>//</td>
+            </tr>
+            <tr>
+              <th>Fattori di distinzione:</th>
+              <td>//</td>
+            </tr>
+            <tr>
+              <th>Titolo:</th>
+              <td>Accordo cromatico</td>
+            </tr>
+            <tr>
+              <th>Soggetto:</th>
+              <td>Accordo di colori; secondo alcune interpretazioni è la <br>visualizzazione di un accordo musicale</td>
+            </tr>
+            <tr>
+              <th>Data o periodo:</th>
+              <td>1909</td>
+            </tr>
+            <tr>
+              <th>Artista:</th>
+              <td><a href="ArnaldoGinna.html" target="_blank">Arnaldo Ginna</a></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="col-md-6">
+          <div class="img-magnifier-container">
+            <img id="myimage" src="img/Ginna.png" width="600" height="400" alt="Accordo Cromatico" class="custom-img">
+          </div>
+        </div>
+
+        <!-- utilizzo JavaScript per mettere la lente di ingrandimento sull'opera-->
+        <script>
+          function magnify(imgID, zoom) {
+            var img, glass, w, h, bw;
+            img = document.getElementById(imgID);
+
+            /* Create magnifier glass: */
+            glass = document.createElement("DIV");
+            glass.setAttribute("class", "img-magnifier-glass");
+
+            /* Insert magnifier glass: */
+            img.parentElement.insertBefore(glass, img);
+
+            /* Set background properties for the magnifier glass: */
+            glass.style.backgroundImage = "url('" + img.src + "')";
+            glass.style.backgroundRepeat = "no-repeat";
+            glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+            bw = 3;
+            w = glass.offsetWidth / 2;
+            h = glass.offsetHeight / 2;
+
+            /* Execute a function when someone moves the magnifier glass over the image: */
+            glass.addEventListener("mousemove", moveMagnifier);
+            img.addEventListener("mousemove", moveMagnifier);
+
+            /*and also for touch screens:*/
+            glass.addEventListener("touchmove", moveMagnifier);
+            img.addEventListener("touchmove", moveMagnifier);
+            function moveMagnifier(e) {
+              var pos, x, y;
+              /* Prevent any other actions that may occur when moving over the image */
+              e.preventDefault();
+              /* Get the cursor's x and y positions: */
+              pos = getCursorPos(e);
+              x = pos.x;
+              y = pos.y;
+              /* Prevent the magnifier glass from being positioned outside the image: */
+              if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+              if (x < w / zoom) {x = w / zoom;}
+              if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+              if (y < h / zoom) {y = h / zoom;}
+              /* Set the position of the magnifier glass: */
+              glass.style.left = (x - w) + "px";
+              glass.style.top = (y - h) + "px";
+              /* Display what the magnifier glass "sees": */
+              glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+            }
+
+            function getCursorPos(e) {
+              var a, x = 0, y = 0;
+              e = e || window.event;
+              /* Get the x and y positions of the image: */
+              a = img.getBoundingClientRect();
+              /* Calculate the cursor's x and y coordinates, relative to the image: */
+              x = e.pageX - a.left;
+              y = e.pageY - a.top;
+              /* Consider any page scrolling: */
+              x = x - window.pageXOffset;
+              y = y - window.pageYOffset;
+              return {x : x, y : y};
+            }
+          }
+          /* Execute the magnify function: */
+          magnify("myimage", 2);
+          /* Specify the id of the image, and the strength of the magnifier glass: */
+        </script>
+        <!-- fine JavaScript-->
+
+   <!-- <div class="dettagli">
+      <p><strong>Artista:</strong>Arnaldo Ginna </p>
+      <p><strong>Anno di realizzazione:</strong> 1909</p>
+      <p><strong>Tecnica:</strong> Acquerello su carta.</p>
+      <p><strong>Dimensioni:</strong> 16,5x21</p>
+      <p><strong>Luogo di conservazione:</strong> Roma, collezione privata </p>
+      <p><strong>Descrizione:</strong> Lorem ipsum</p>
+    </div> -->
+
+    <!--</div>-->
+    <div class="col-md-2">
+      <aside>
+        <figure><img src="img/ArnaldoGinna.jpg"  class="custom-img">
+          <figcaption>Per approfondire la vita dell'artista, <a href="https://www.ginnacorra.it/ginna/" target="_blank">clicca qui</a>!</figcaption></figure>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+</section>
+</body>
+
+
+<footer>
+  <div class="container">
+   <div class="logo-section">
+    <img src="img/LogoUnibo.png" alt="Logo 1">
+
+  </div>
+  <div class="contact-section">
+    <h3>Contatti</h3>
+    <p>Indirizzo: Via del Corso, 123</p>
+    <p>Email: eleonora.fortuna@studio.unibo.it</p>
+    <p>Telefono: 123-456789</p>
+
+    <div class="copyright">
+     <p>&copy; Copyright Eleonora Fortuna 2023 - Corso di Digital Humanities e Patrimonio Culturale</p>
+   </div>
+
+ </div>
+</div>
+</footer>
+</html>

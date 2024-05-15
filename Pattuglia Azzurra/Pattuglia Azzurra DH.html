@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>La Pattuglia Azzurra</title>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="styles.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Collegamento all'icona della lente di ingrandimento per la search bar -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"> <!--abbiamo qui specificato il link che tagghi il set degli elementi DC-->
+ <meta name="DC.Title" content="La Pattuglia Azzurra">
+ <meta name="DC.Creator" content="Eleonora Fortuna">
+ <meta name="DC.Subject" content="Arte futurista del primo Novecento in Toscana">
+ <meta name="DC.Description" content="Questo sito si propone di raccogliere informazioni legate al gruppo futurista fiorentino della Pattuglia Azzurra.">
+ <meta name="DC.Publisher" content="Università di Bologna">
+ <meta name="DC.Date" content="2023">
+ <meta name="DC.Type" content="Sito Web">
+ <meta name="DC.Type" content="Immagini">
+ <meta name="DC.Type" content="Catalogo di opere d'arte">
+ <meta name="DC.Format" content="HTML">
+ <meta name="DC.Language" content="Italiano">
+ <meta name="DC.Coverage" content="1914-1916">
+ <meta name="DC.Coverage" content="Firenze">
+ <meta name="DC.Coverage" content="Toscana">
+ <meta name="DC.Rights" content="Accesso Libero Creative Commons"></head><body>
+
+
+
+
+
+  <header>
+
+    <div class="header">
+
+      <a href="#" class="logo">La Pattuglia azzurra </a> 
+
+      <div class="header-right">
+        <a href="file:///C:/Users/eleon/OneDrive/Desktop/Lezioni%202022-2023/Lezioni%20Secondo%20Semestre/Lezioni%20secondo%20periodo/Digital%20Humanities/Sublime%20Text%20Build%203211/Pattuglia%20Azzurra/GliArtisti.html" target="_blank">Gli artisti</a>
+        <a href= "file:///C:/Users/eleon/OneDrive/Desktop/Lezioni%202022-2023/Lezioni%20Secondo%20Semestre/Lezioni%20secondo%20periodo/Digital%20Humanities/Sublime%20Text%20Build%203211/Pattuglia%20Azzurra/OperePattuglia.html" target="_blank">Le opere</a>
+        <a href="">I manifesti</a>
+        <a href="#">I luoghi</a>
+
+
+        <div class="search-container">
+
+          <input type="text" class="search-input" placeholder="Cerca...">
+          <i class="fas fa-search search-icon"></i> <!--Icona della lente d'ingrandimento -->
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="main-heading">
+     <!-- Sezione carosello -->
+     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+
+      </ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <div class="item active">
+          <img class="center-block"  src="img/Pattuglia.jpg" alt="Il gruppo al completo" width="550px" height="500px">
+          <div class="carousel-caption" style="text-align: center;">
+            <h3>Gli artisti</h3>
+            <p>La Pattuglia azzurra</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img class="center-block" src="img/Conti.jpg" alt="La Fondazione Primo Conti a Fiesole" width="mr-auto" height="mr-auto">
+          <div class="carousel-caption" style="text-align: center;">
+           <h3>La Fondazione Primo Conti</h3>
+           <p>L'interno del Museo Primo Conti a Fiesole</p>
+         </div>
+       </div>
+
+       <div class="item">
+        <img class="center-block" src="img/figaro-futurismo.jpg" alt="La prima pagina del periodico parigino Figaro" width="mr-auto" height="mr-auto">
+        <div class="carousel-caption" style="text-align: center;">
+          <h3>I manifesti del Futurismo</h3>
+          <!--  <p>I Manifesti del Futurismo</p>-->
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <!-- fine sezione carosello-->
+</div>
+</header>
+
+<!-- tentativo divisione colonne -->
+<style>
+  .megacontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .titolo {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding: 40px;
+    background-color: #123;
+    color: white;
+  }
+
+  .colonne {
+    display: flex;
+    justify-content:left;
+    width: 90%;
+  }
+
+  .colonna {
+    width: 48%; /* lascia il 2% di spazio tra le colonne */
+  }
+
+  .image2 {
+    
+    
+  }
+</style>
+</head>
+<body>
+  <div class="megacontainer">
+    <h2 class="titolo">La storia della Pattuglia azzurra</h2>
+    <div class="colonne">
+      <div class="colonna">
+        <!-- Contenuto per la prima colonna -->
+        <h4 class="testo" style="padding-top: 30pt; padding-left: 15pt; margin-bottom: 0pt; padding-bottom: 0 pt;">Il gruppo della Pattuglia azzurra si sviluppa attorno alla figura di Emilio Settimelli e al suo periodico L'Italia Futurista. Accanto a lui saranno i nomi di Bruno Corra, Remo Chiti e Mario Carli ad accompagnare l'avventura della rivista fiorentina, portandola a sostituire la ben più nota Lacerba. <br>Marinetti seguirà passo passo il suo sviluppo, tanto da portare i membri del gruppo del secondo Futurismo fiorentino a vederne in lui la figura di un fratello.</br>
+        I giovani opereranno in stretti rapporti, che ci vengono testimoniati da più di una corpora raccolta di epistole.</h4> 
+      </div>
+      <div class="colonna">
+        <!-- Contenuto per la seconda colonna con un'immagine -->
+        <div class="container2" style="float: right;">
+          <img src="img/Futuristi italiani.jpg" alt="La redazione della Pattuglia" class="image2">
+          <div class="overlay2">
+            <div class="text2">La redazione de <em>L'Italia Futurista</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fine tentativo-->
+
+
+<!--<table border="0">
+
+  <tr >
+    <td >
+      <div class="box-1">
+        <div id="La storia della Pattuglia"><h2 style="padding-left: 15pt;" >La storia della Pattuglia Azzurra</h2>
+        </div>
+        <div style= "margin-bottom:  0pt; padding-bottom: 0pt;">
+          <figure style="width:40%; margin-bottom: 0pt; padding-bottom: 0 pt;"> -->
+           <!--  <img src="img/Futuristi italiani.jpg" alt="Il gruppo della Pattuglia azzurra" style="width:100%; margin-bottom: 0pt; padding-bottom: opt;" align = "right"  > -->
+           <!--   <div align = "right"> -->
+
+            <!--  <figcaption style="padding-bottom: 0pt; margin-bottom: 0pt;">La redazione de <em>L'Italia Futurista</em></figcaption>
+            </figure> 
+
+            <h4 class="testo" style="padding-top: 30pt; padding-left: 15pt; margin-bottom: 0pt; padding-bottom: 0 pt;">Il gruppo della Pattuglia azzurra si sviluppa attorno alla figura di Emilio Settimelli e al suo periodico L'Italia Futurista. Accanto a lui saranno i nomi di Bruno Corra, Remo Chiti e Mario Carli ad accompagnare l'avventura della rivista fiorentina, portandola a sostituire la ben più nota Lacerba. <br>Marinetti seguirà passo passo il suo sviluppo, tanto da portare i membri del gruppo del secondo Futurismo fiorentino a vederne in lui la figura di un fratello.</br>
+            I giovani opereranno in stretti rapporti, che ci vengono testimoniati da più di una corpora raccolta di epistole.</h4>    
+
+
+
+          </div> -->
+<!--  <div class="container2" style="float: right;">
+              <img src="img/Futuristi italiani.jpg" alt="La redazione della Pattuglia" class="image2">
+              <div class="overlay2">
+                <div class="text2">La redazione de <em>L'Italia Futurista</em></div>
+              </div>
+            </div>
+          </div>
+        -->
+      </td>
+    </tr>
+
+    <tr style="padding: 0pt; margin: 0pt;">
+      <td>
+        <section class="box-2">
+          <div id="I Manifesti"><h2 style="padding-left: 15pt;" >I Manifesti:</h2>
+          </div>
+          <div align = "left">
+            <div class="container" style="float: left;">
+              <img src="img/Corra.jpg" alt="Pesi, Misure e Prezzi del genio artistico" class="image">
+              <div class="overlay">
+                <div class="text">1914</div>
+              </div>
+            </div>
+            <!-- <img src="img/Manifesti.png" alt="Uno dei manifesti del Futurismo" width="200pt" align = "left" style="margin: 15pt;"  > -->
+
+          </div>
+
+
+          <h4 class="testo2"style="float: right; padding-top: 30pt; padding-left: 15pt;">Il gruppo della Pattuglia azzurra si sviluppa attorno alla figura di Emilio Settimelli e al suo periodico L'Italia Futurista. Accanto a lui saranno i nomi di Bruno Corra, Remo Chiti e Mario Carli ad accompagnare l'avventura della rivista fiorentina, portandola a sostituire la ben più nota Lacerba. <br>Marinetti seguirà passo passo il suo sviluppo, tanto da portare i membri del gruppo del secondo Futurismo fiorentino a vederne in lui la figura di un fratello.</br>
+          I giovani opereranno in stretti rapporti, che ci vengono testimoniati da più di una corpora raccolta di epistole.</h4>    
+
+        </section>
+
+
+      </div>
+    </td>
+  </tr>
+
+
+</table>
+
+
+
+  <!--   <section>
+
+
+
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#" style="font-size:35px;"><font color="#3333CC" >La Pattuglia Azzurra</font></a>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="file:///C:/Users/eleon/OneDrive/Desktop/Lezioni%202022-2023/Lezioni%20Secondo%20Semestre/Lezioni%20secondo%20periodo/Digital%20Humanities/Sublime%20Text%20Build%203211/Pattuglia%20Azzurra/GliArtisti.html" target="_blank">Gli artisti</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href= "file:///C:/Users/eleon/OneDrive/Desktop/Lezioni%202022-2023/Lezioni%20Secondo%20Semestre/Lezioni%20secondo%20periodo/Digital%20Humanities/Sublime%20Text%20Build%203211/Pattuglia%20Azzurra/OperePattuglia.html" target="_blank">Le opere</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">I luoghi</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> 
+            <div class="search-container">
+              <input type="text" class="search-input" placeholder="Cerca...">
+              <i class="fas fa-search search-icon"></i> Icona della lente d'ingrandimento 
+            </div>
+
+          </div>
+        </nav>
+        <br>
+      -->
+
+
+
+
+
+
+<!--<h1>La storia della Pattuglia Azzurra:</h1>
+<script>
+var i = 0;
+var txt = 'Il gruppo della Pattuglia azzurra si sviluppa attorno alla figura di Emilio Settimelli e al suo periodico L'Italia Futurista. Accanto a lui saranno i nomi di Bruno Corra, Remo Chiti e Mario Carli ad accompagnare l'avventura della rivista fiorentina, portandola a sostituire la ben più nota Lacerba. <br>Marinetti seguirà passo passo il suo sviluppo, tanto da portare i membri del gruppo del secondo Futurismo fiorentino a vederne in lui la figura di un fratello.</br> I giovani opereranno in stretti rapporti, che ci vengono testimoniati da più di una corpora raccolta di epistole.';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+<button onclick="typeWriter()">Scopri di più</button>
+
+<p id="demo"></p>-->
+
+
+
+
+
+
+</section> 
+</body>
+
+<footer>
+
+  <div class="container3">
+    <div class="logo-section">
+      <img src="img/LogoUnibo.png" alt="Logo 1">
+
+    </div>
+    <div class="contact-section">
+      <h3>Contatti</h3>
+      <p>Indirizzo: Via del Corso, 123</p>
+      <p>Email: eleonora.fortuna@studio.unibo.it</p>
+      <p>Telefono: 123-456789</p>
+
+      <div class="copyright">
+        <p>&copy; Copyright Eleonora Fortuna 2023 - Corso di Digital Humanities e Patrimonio Culturale</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+</html>

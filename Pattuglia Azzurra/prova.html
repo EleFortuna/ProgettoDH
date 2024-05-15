@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Due box di testo</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<style type="text/css">
+	* {box-sizing: border-box;}
+
+	.img-magnifier-container {
+		position: relative;
+	}
+
+	.img-magnifier-glass {
+		position: absolute;
+		border: 3px solid #000;
+		border-radius: 50%;
+		cursor: none;
+		/*Set the size of the magnifier glass:*/
+		width: 100px;
+		height: 100px;
+	}
+</style>
+<script>
+	function magnify(imgID, zoom) {
+		var img, glass, w, h, bw;
+		img = document.getElementById(imgID);
+
+		/* Create magnifier glass: */
+		glass = document.createElement("DIV");
+		glass.setAttribute("class", "img-magnifier-glass");
+
+		/* Insert magnifier glass: */
+		img.parentElement.insertBefore(glass, img);
+
+		/* Set background properties for the magnifier glass: */
+		glass.style.backgroundImage = "url('" + img.src + "')";
+		glass.style.backgroundRepeat = "no-repeat";
+		glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+		bw = 3;
+		w = glass.offsetWidth / 2;
+		h = glass.offsetHeight / 2;
+
+		/* Execute a function when someone moves the magnifier glass over the image: */
+		glass.addEventListener("mousemove", moveMagnifier);
+		img.addEventListener("mousemove", moveMagnifier);
+
+		/*and also for touch screens:*/
+		glass.addEventListener("touchmove", moveMagnifier);
+		img.addEventListener("touchmove", moveMagnifier);
+		function moveMagnifier(e) {
+			var pos, x, y;
+			/* Prevent any other actions that may occur when moving over the image */
+			e.preventDefault();
+			/* Get the cursor's x and y positions: */
+			pos = getCursorPos(e);
+			x = pos.x;
+			y = pos.y;
+			/* Prevent the magnifier glass from being positioned outside the image: */
+			if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+			if (x < w / zoom) {x = w / zoom;}
+			if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+			if (y < h / zoom) {y = h / zoom;}
+			/* Set the position of the magnifier glass: */
+			glass.style.left = (x - w) + "px";
+			glass.style.top = (y - h) + "px";
+			/* Display what the magnifier glass "sees": */
+			glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+		}
+
+		function getCursorPos(e) {
+			var a, x = 0, y = 0;
+			e = e || window.event;
+			/* Get the x and y positions of the image: */
+			a = img.getBoundingClientRect();
+			/* Calculate the cursor's x and y coordinates, relative to the image: */
+			x = e.pageX - a.left;
+			y = e.pageY - a.top;
+			/* Consider any page scrolling: */
+			x = x - window.pageXOffset;
+			y = y - window.pageYOffset;
+			return {x : x, y : y};
+		}
+	}
+</script>
+
+<style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .titolo {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .colonne {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+
+        .colonna {
+            width: 48%; /* lascia il 2% di spazio tra le colonne */
+        }
+
+        .colonna img {
+            max-width: 100%; /* Assicura che l'immagine non superi la larghezza della colonna */
+            height: auto; /* Impedisce l'ingrandimento dell'immagine */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="titolo">Titolo comune</h2>
+        <div class="colonne">
+            <div class="colonna">
+                <!-- Contenuto per la prima colonna -->
+                <p>Contenuto colonna 1</p>
+            </div>
+            <div class="colonna">
+                <!-- Contenuto per la seconda colonna con un'immagine -->
+                <img src="img/Futuristi italiani.jpg" alt="Descrizione dell'immagine">
+                <p>Altra informazione nella seconda colonna.</p>
+            </div>
+        </div>
+    </div>
+
+
+<style>
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  width: 100%;
+  left: 0;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+</style>
+
+<style type="text/css">table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+<body> 
+	<table>
+  <tr>
+    <th> Artista:</th>
+    <td>Lastname</td>
+  <td>Savings</td>
+  </tr>
+  <tr>
+    <th>Stile</th>
+    <td>Griffin</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+    <td>$150</td>
+  </tr>
+  <tr>
+    <td>Joe</td>
+    <td>Swanson</td>
+    <td>$300</td>
+  </tr>
+  <tr>
+    <td>Cleveland</td>
+    <td>Brown</td>
+    <td>$250</td>
+  </tr>
+</table>
+
+<h2>Slide in Overlay from the Right</h2>
+<p>Hover over the image to see the effect.</p>
+
+<div class="container">
+  <img src="img/Futuristi italiani.jpg" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">La redazione della Pattuglia</div>
+  </div>
+</div>
+
+</body>
+</html>
+
+	<!-- inizio tentativo linea del tempo su knight lab -->
+
+	<iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1I1R-c0uhiPNCsoaGb9AyEJGB6pJIXAHZfzwvmifOsfE&font=Georgia-Helvetica&lang=it&initial_zoom=2&height=400' width='100%' height='400' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+
+
+
+<!--	<div id="timeline-embed" class="tl-timeline tl-layout-landscape" tabindex="0" role="region" aria-label="Timeline" style="width: 100%; height: 634px;">
+		<div class="tl-storyslider" id="tl-omqe" role="group" aria-label="Timeline content" style="height: 469px;">
+			<button class="tl-slidenav-previous" type="button" aria-label="previous, Ottone Rosai, 1895 &amp;mdash; 1957" style="top: 234.5px; display: block;">
+				<div class="tl-slidenav-content-container"><div class="tl-slidenav-icon">&nbsp;</div>
+				<div class="tl-slidenav-title">Ottone Rosai</div>
+				<div class="tl-slidenav-description">1895 — 1957</div>
+			</div> 
+		</button>
+
+		<button class="tl-slidenav-next" type="button" aria-label="next, Primo Conti, 1900 &amp;mdash; 1988" style="top: 234.5px; display: none;">
+			<div class="tl-slidenav-content-container">
+				<div class="tl-slidenav-icon">&nbsp;</div><div class="tl-slidenav-title">Primo Conti</div>
+				<div class="tl-slidenav-description">1900 — 1988</div>
+			</div>
+		</button>
+		<div class="tl-slider-container-mask"><div class="tl-slider-container tlanimate" aria-live="polite" style="left: -11830px;">
+			<div class="tl-slider-item-container">
+				<div class="tl-slide tl-slide-titleslide tl-slide-text-only" id="gli-artisti-della-pattuglia" style="left: 0px; top: 0px;" inert="true">
+					<div class="tl-slide-scrollable-container">
+						<div class="tl-slide-content-container"><div class="tl-slide-content" style="padding-left: 100px; padding-right: 100px; width: 983px;">
+							<div class="tl-text" id="tl-qcuuu">
+								<div class="tl-text-content-container"><div class="tl-text-headline-container">
+									<h2 class="tl-headline tl-headline-title">Gli artisti della Pattuglia</h2>
+									<h3 class="tl-headline-date"></h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tl-slide-background">
+			</div></div><div class="tl-slide tl-full-color-background tl-slide-text-only" id="ardengo-soffici" style="left: 2366px; top: 0px;" inert="true">
+				<div class="tl-slide-scrollable-container">
+					<div class="tl-slide-content-container"><div class="tl-slide-content" style="padding-left: 100px; padding-right: 100px; width: 983px;">
+						<div class="tl-text" id="tl-tkpqa">
+							<div class="tl-text-content-container">
+								<div class="tl-text-headline-container">
+									<h2 class="tl-headline">Ardengo Soffici</h2>
+									<h3 class="tl-headline-date">1879 — 1964</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tl-slide-background"></div>
+		</div>
+		<div class="tl-slide tl-slide-text-only" id="arnaldo-ginna" style="left: 4732px; top: 0px;" inert="true"><div class="tl-slide-scrollable-container">
+			<div class="tl-slide-content-container">
+				<div class="tl-slide-content" style="padding-left: 100px; padding-right: 100px; width: 983px;">
+					<div class="tl-text" id="tl-zhnmf"><div class="tl-text-content-container">
+						<div class="tl-text-headline-container">
+							<h2 class="tl-headline">Arnaldo Ginna</h2>
+							<h3 class="tl-headline-date">1890 — 1982</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tl-slide-background"></div>
+</div>
+<div class="tl-slide tl-slide-text-only" id="maria-ginanni" style="left: 7098px; top: 0px;" inert="true">
+	<div class="tl-slide-scrollable-container">
+		<div class="tl-slide-content-container"><div class="tl-slide-content" style="padding-left: 100px; padding-right: 100px; width: 983px;">
+			<div class="tl-text" id="tl-ajnj">
+				<div class="tl-text-content-container">
+					<div class="tl-text-headline-container">
+						<h2 class="tl-headline">Maria Ginanni</h2>
+						<h3 class="tl-headline-date">1891 — 1953</h3></div></div></div></div></div></div><div class="tl-slide-background"></div>
+					</div>
+					<div class="tl-slide tl-slide-text-only" id="ottone-rosai" style="left: 9464px; top: 0px;" inert="true">
+						<div class="tl-slide-scrollable-container">
+							<div class="tl-slide-content-container">
+								<div class="tl-slide-content" style="padding-left: 100px; padding-right: 100px; width: 983px;"><div class="tl-text" id="tl-lpqbz">
+									<div class="tl-text-content-container">
+										<div class="tl-text-headline-container">
+											<h2 class="tl-headline">Ottone Rosai</h2>
+											<h3 class="tl-headline-date">1895 — 1957</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tl-slide-background"></div>
+				</div><div class="tl-slide tl-slide-text-only" id="primo-conti" style="left: 11830px; top: 0px;"><div class="tl-slide-scrollable-container">
+					<div class="tl-slide-content-container"><div class="tl-slide-content" style="padding-left: 100px; padding-right: 100px; width: 983px;">
+						<div class="tl-text" id="tl-ilfma">
+							<div class="tl-text-content-container">
+								<div class="tl-text-headline-container">
+									<h2 class="tl-headline">Primo Conti</h2>
+									<h3 class="tl-headline-date">1900 — 1988</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tl-slide-background"></div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="tl-slider-background tl-animate" style="background-image: none; background-color: rgb(255, 255, 255);"></div>
+</div>
+<div class="tl-timenav" tabindex="0" role="application" aria-label="Timeline navigation , Primo Conti, from 1900 to 1988, shown" aria-description="Navigate between markers with arrow keys. Press &quot;Home&quot; for the first and &quot;End&quot; for the last markers" style="height: 165px;">
+	<div class="tl-timenav-line"></div>
+	<div class="tl-timenav-slider" style="position: absolute; width: 3545px; left: 136.437px;">
+		<div class="tl-timenav-slider-background" style="width: 3545px; left: -591.5px;"></div><div class="tl-timenav-container-mask"><div class="tl-timenav-container">
+			<div class="tl-timenav-item-container">
+				<div class="tl-timemarker tl-timemarker-with-end" tabindex="-1" id="ardengo-soffici-marker" aria-label="Ardengo Soffici, from 1879 to 1964, press space to show" style="left: 0px; width: 1841.91px; top: 5px;"><div class="tl-timemarker-timespan" style="height: 120px;"><div class="tl-timemarker-timespan-content" style="height: 25px;">
+				</div>
+				<div class="tl-timemarker-line-left"></div>
+				<div class="tl-timemarker-line-right"></div></div><div class="tl-timemarker-content-container tl-timemarker-content-container-long tl-timemarker-content-container-small" style="width: 1841.91px; height: 25px;"><div class="tl-timemarker-content tl-timemarker-content-small">
+					<div class="tl-timemarker-media-container">
+						<span class="tl-icon-imageblank"></span>
+					</div>
+					<div class="tl-timemarker-text">
+						<h2 class="tl-headline" style="-webkit-line-clamp: 1;">Ardengo Soffici</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tl-timemarker tl-timemarker-with-end" tabindex="-1" id="arnaldo-ginna-marker" aria-label="Arnaldo Ginna, from 1890 to 1982, press space to show" style="left: 238.389px; width: 1993.62px; top: 35px;">
+			<div class="tl-timemarker-timespan" style="height: 90px;">
+				<div class="tl-timemarker-timespan-content" style="height: 25px;">
+				</div>
+				<div class="tl-timemarker-line-left"></div><div class="tl-timemarker-line-right"></div>
+			</div>
+			<div class="tl-timemarker-content-container tl-timemarker-content-container-long tl-timemarker-content-container-small" style="width: 1993.62px; height: 25px;">
+				<div class="tl-timemarker-content tl-timemarker-content-small">
+					<div class="tl-timemarker-media-container"><span class="tl-icon-imageblank">
+					</span>
+				</div>
+				<div class="tl-timemarker-text">
+					<h2 class="tl-headline" style="-webkit-line-clamp: 1;">Arnaldo Ginna</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tl-timemarker tl-timemarker-with-end" tabindex="-1" id="maria-ginanni-marker" aria-label="Maria Ginanni, from 1891 to 1953, press space to show" style="left: 260.045px; width: 1343.54px; top: 65px;"><div class="tl-timemarker-timespan" style="height: 60px;">
+		<div class="tl-timemarker-timespan-content" style="height: 25px;">
+		</div>
+		<div class="tl-timemarker-line-left"></div>
+		<div class="tl-timemarker-line-right"></div>
+	</div>
+	<div class="tl-timemarker-content-container tl-timemarker-content-container-long tl-timemarker-content-container-small" style="width: 1343.54px; height: 25px;">
+		<div class="tl-timemarker-content tl-timemarker-content-small">
+			<div class="tl-timemarker-media-container">
+				<span class="tl-icon-imageblank"></span>
+			</div>
+			<div class="tl-timemarker-text"><h2 class="tl-headline" style="-webkit-line-clamp: 1;">Maria Ginanni</h2></div></div></div></div><div class="tl-timemarker tl-timemarker-with-end" tabindex="-1" id="ottone-rosai-marker" aria-label="Ottone Rosai, from 1895 to 1957, press space to show" style="left: 346.726px; width: 1343.54px; top: 95px;"><div class="tl-timemarker-timespan" style="height: 30px;"><div class="tl-timemarker-timespan-content" style="height: 25px;">
+			</div>
+			<div class="tl-timemarker-line-left"></div><div class="tl-timemarker-line-right"></div></div><div class="tl-timemarker-content-container tl-timemarker-content-container-long tl-timemarker-content-container-small" style="width: 1343.54px; height: 25px;">
+				<div class="tl-timemarker-content tl-timemarker-content-small">
+					<div class="tl-timemarker-media-container">
+						<span class="tl-icon-imageblank"></span></div><div class="tl-timemarker-text"><h2 class="tl-headline" style="-webkit-line-clamp: 1;">Ottone Rosai</h2></div></div></div></div><div class="tl-timemarker tl-timemarker-with-end tl-timemarker-active" tabindex="-1" id="primo-conti-marker" aria-label="Primo Conti, from 1900 to 1988, shown" style="left: 455.063px; width: 1906.94px; top: 65px;"><div class="tl-timemarker-timespan" style="height: 60px;"><div class="tl-timemarker-timespan-content" style="height: 25px;"></div><div class="tl-timemarker-line-left"></div><div class="tl-timemarker-line-right"></div></div><div class="tl-timemarker-content-container tl-timemarker-content-container-long tl-timemarker-content-container-small" style="width: 1906.94px; height: 25px;"><div class="tl-timemarker-content tl-timemarker-content-small"><div class="tl-timemarker-media-container"><span class="tl-icon-imageblank"></span></div><div class="tl-timemarker-text"><h2 class="tl-headline" style="-webkit-line-clamp: 1;">Primo Conti</h2></div></div></div></div></div></div></div><div class="tl-timeaxis"><div class="tl-timeaxis-content-container"><div class="tl-timeaxis-major tl-timeaxis-animate" style="opacity: 1;">
+							<div class="tl-timeaxis-tick" style="left: -6045.94px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1600</span></div><div class="tl-timeaxis-tick" style="left: -5829.21px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1610</span></div><div class="tl-timeaxis-tick" style="left: -5612.53px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1620</span></div><div class="tl-timeaxis-tick" style="left: -5395.8px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1630</span></div><div class="tl-timeaxis-tick" style="left: -5179.12px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1640</span></div><div class="tl-timeaxis-tick" style="left: -4962.39px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1650</span></div><div class="tl-timeaxis-tick" style="left: -4745.72px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1660</span></div><div class="tl-timeaxis-tick" style="left: -4528.98px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1670</span></div><div class="tl-timeaxis-tick" style="left: -4312.31px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1680</span></div><div class="tl-timeaxis-tick" style="left: -4095.57px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1690</span></div><div class="tl-timeaxis-tick" style="left: -3878.9px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1700</span></div><div class="tl-timeaxis-tick" style="left: -3662.22px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1710</span></div><div class="tl-timeaxis-tick" style="left: -3445.55px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1720</span></div><div class="tl-timeaxis-tick" style="left: -3228.82px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1730</span></div><div class="tl-timeaxis-tick" style="left: -3012.14px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1740</span></div><div class="tl-timeaxis-tick" style="left: -2795.41px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1750</span></div><div class="tl-timeaxis-tick" style="left: -2578.73px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1760</span></div><div class="tl-timeaxis-tick" style="left: -2362px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1770</span></div><div class="tl-timeaxis-tick" style="left: -2145.33px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1780</span></div><div class="tl-timeaxis-tick" style="left: -1928.59px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1790</span></div><div class="tl-timeaxis-tick" style="left: -1711.92px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1800</span></div><div class="tl-timeaxis-tick" style="left: -1495.24px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1810</span></div><div class="tl-timeaxis-tick" style="left: -1278.57px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1820</span></div><div class="tl-timeaxis-tick" style="left: -1061.84px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1830</span></div><div class="tl-timeaxis-tick" style="left: -845.161px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1840</span></div><div class="tl-timeaxis-tick" style="left: -628.427px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1850</span></div><div class="tl-timeaxis-tick" style="left: -411.753px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1860</span></div><div class="tl-timeaxis-tick" style="left: -195.019px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1870</span></div><div class="tl-timeaxis-tick" style="left: 21.6556px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1880</span></div><div class="tl-timeaxis-tick" style="left: 238.389px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1890</span></div><div class="tl-timeaxis-tick" style="left: 455.063px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1900</span></div><div class="tl-timeaxis-tick" style="left: 671.738px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1910</span></div><div class="tl-timeaxis-tick" style="left: 888.412px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1920</span></div><div class="tl-timeaxis-tick" style="left: 1105.15px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1930</span></div><div class="tl-timeaxis-tick" style="left: 1321.82px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1940</span></div><div class="tl-timeaxis-tick" style="left: 1538.55px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1950</span></div><div class="tl-timeaxis-tick" style="left: 1755.23px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1960</span></div><div class="tl-timeaxis-tick" style="left: 1971.96px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1970</span></div><div class="tl-timeaxis-tick" style="left: 2188.64px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1980</span></div><div class="tl-timeaxis-tick" style="left: 2405.37px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1990</span></div><div class="tl-timeaxis-tick" style="left: 2622.04px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2000</span></div><div class="tl-timeaxis-tick" style="left: 2838.78px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2010</span></div><div class="tl-timeaxis-tick" style="left: 3055.45px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2020</span></div><div class="tl-timeaxis-tick" style="left: 3272.19px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2030</span></div><div class="tl-timeaxis-tick" style="left: 3488.86px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2040</span></div><div class="tl-timeaxis-tick" style="left: 3705.6px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2050</span></div><div class="tl-timeaxis-tick" style="left: 3922.27px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2060</span></div><div class="tl-timeaxis-tick" style="left: 4139px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2070</span></div><div class="tl-timeaxis-tick" style="left: 4355.68px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2080</span></div><div class="tl-timeaxis-tick" style="left: 4572.41px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2090</span></div><div class="tl-timeaxis-tick" style="left: 4789.09px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2100</span></div><div class="tl-timeaxis-tick" style="left: 5005.76px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2110</span></div><div class="tl-timeaxis-tick" style="left: 5222.43px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2120</span></div><div class="tl-timeaxis-tick" style="left: 5439.17px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2130</span></div><div class="tl-timeaxis-tick" style="left: 5655.84px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2140</span></div><div class="tl-timeaxis-tick" style="left: 5872.58px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2150</span></div><div class="tl-timeaxis-tick" style="left: 6089.25px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2160</span></div><div class="tl-timeaxis-tick" style="left: 6305.98px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2170</span></div><div class="tl-timeaxis-tick" style="left: 6522.66px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2180</span></div><div class="tl-timeaxis-tick" style="left: 6739.39px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2190</span></div><div class="tl-timeaxis-tick" style="left: 6956.07px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2200</span></div><div class="tl-timeaxis-tick" style="left: 7172.74px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2210</span></div><div class="tl-timeaxis-tick" style="left: 7389.42px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2220</span></div><div class="tl-timeaxis-tick" style="left: 7606.15px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2230</span></div><div class="tl-timeaxis-tick" style="left: 7822.82px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2240</span></div><div class="tl-timeaxis-tick" style="left: 8039.56px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2250</span></div></div><div class="tl-timeaxis-minor tl-timeaxis-animate" style="opacity: 1;"><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -606.771px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1851</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -585.116px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1852</span></div><div class="tl-timeaxis-tick" style="left: -563.401px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1853</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -541.745px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1854</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -520.09px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1855</span></div><div class="tl-timeaxis-tick" style="left: -498.434px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1856</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -476.719px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1857</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -455.064px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1858</span></div><div class="tl-timeaxis-tick" style="left: -433.408px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1859</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -390.038px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1861</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -368.382px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1862</span></div><div class="tl-timeaxis-tick" style="left: -346.727px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1863</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -325.071px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1864</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -303.356px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1865</span></div><div class="tl-timeaxis-tick" style="left: -281.7px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1866</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -260.045px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1867</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -238.389px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1868</span></div><div class="tl-timeaxis-tick" style="left: -216.674px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1869</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -173.363px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1871</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -151.708px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1872</span></div><div class="tl-timeaxis-tick" style="left: -129.993px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1873</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -108.337px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1874</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -86.6816px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1875</span></div><div class="tl-timeaxis-tick" style="left: -65.0261px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1876</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -43.3112px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1877</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: -21.6556px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1878</span></div><div class="tl-timeaxis-tick" style="left: 0px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1879</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 43.3705px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1881</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 65.0261px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1882</span></div><div class="tl-timeaxis-tick" style="left: 86.6816px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1883</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 108.337px;">
+								<span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1884</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 130.052px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1885</span></div><div class="tl-timeaxis-tick" style="left: 151.708px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1886</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 173.363px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1887</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 195.019px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1888</span></div><div class="tl-timeaxis-tick" style="left: 216.734px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1889</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 260.045px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1891</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 281.7px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1892</span></div><div class="tl-timeaxis-tick" style="left: 303.415px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1893</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 325.071px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1894</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 346.726px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1895</span></div><div class="tl-timeaxis-tick" style="left: 368.382px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1896</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 390.097px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1897</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 411.752px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1898</span></div><div class="tl-timeaxis-tick" style="left: 433.408px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1899</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 476.719px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1901</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 498.374px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1902</span></div><div class="tl-timeaxis-tick" style="left: 520.03px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1903</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 541.686px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1904</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 563.401px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1905</span></div><div class="tl-timeaxis-tick" style="left: 585.056px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1906</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 606.712px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1907</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 628.367px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1908</span></div><div class="tl-timeaxis-tick" style="left: 650.082px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1909</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 693.393px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1911</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 715.049px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1912</span></div><div class="tl-timeaxis-tick" style="left: 736.764px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1913</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 758.419px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1914</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 780.075px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1915</span></div><div class="tl-timeaxis-tick" style="left: 801.731px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1916</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 823.445px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1917</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 845.101px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1918</span></div><div class="tl-timeaxis-tick" style="left: 866.757px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1919</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 910.127px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1921</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 931.783px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1922</span></div><div class="tl-timeaxis-tick" style="left: 953.438px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1923</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 975.094px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1924</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 996.809px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1925</span></div><div class="tl-timeaxis-tick" style="left: 1018.46px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1926</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1040.12px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1927</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1061.78px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1928</span></div><div class="tl-timeaxis-tick" style="left: 1083.49px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1929</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1126.8px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1931</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1148.46px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1932</span></div><div class="tl-timeaxis-tick" style="left: 1170.17px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1933</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1191.83px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1934</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1213.48px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1935</span></div><div class="tl-timeaxis-tick" style="left: 1235.14px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1936</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1256.85px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1937</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1278.51px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1938</span></div><div class="tl-timeaxis-tick" style="left: 1300.16px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1939</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1343.53px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1941</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1365.19px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1942</span></div><div class="tl-timeaxis-tick" style="left: 1386.85px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1943</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1408.5px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1944</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1430.22px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1945</span></div><div class="tl-timeaxis-tick" style="left: 1451.87px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1946</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1473.53px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1947</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1495.18px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1948</span></div><div class="tl-timeaxis-tick" style="left: 1516.9px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1949</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1560.21px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1951</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1581.87px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1952</span></div><div class="tl-timeaxis-tick" style="left: 1603.58px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1953</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1625.24px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1954</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1646.89px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1955</span></div><div class="tl-timeaxis-tick" style="left: 1668.55px;">
+
+									<span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1956</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1690.26px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1957</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1711.92px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1958</span></div><div class="tl-timeaxis-tick" style="left: 1733.57px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1959</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1776.94px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1961</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1798.6px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1962</span></div><div class="tl-timeaxis-tick" style="left: 1820.25px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1963</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1841.91px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1964</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1863.63px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1965</span></div><div class="tl-timeaxis-tick" style="left: 1885.28px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1966</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1906.94px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1967</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1928.59px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1968</span></div><div class="tl-timeaxis-tick" style="left: 1950.31px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1969</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 1993.62px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1971</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2015.27px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1972</span></div><div class="tl-timeaxis-tick" style="left: 2036.99px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1973</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2058.64px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1974</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2080.3px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1975</span></div><div class="tl-timeaxis-tick" style="left: 2101.96px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1976</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2123.67px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1977</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2145.33px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1978</span></div><div class="tl-timeaxis-tick" style="left: 2166.98px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1979</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2210.35px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1981</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2232.01px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1982</span></div><div class="tl-timeaxis-tick" style="left: 2253.66px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1983</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2275.32px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1984</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2297.03px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1985</span></div><div class="tl-timeaxis-tick" style="left: 2318.69px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1986</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2340.34px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1987</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2362px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1988</span></div><div class="tl-timeaxis-tick" style="left: 2383.71px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1989</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2427.03px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1991</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2448.68px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1992</span></div><div class="tl-timeaxis-tick" style="left: 2470.4px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1993</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2492.05px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1994</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2513.71px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1995</span></div><div class="tl-timeaxis-tick" style="left: 2535.36px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1996</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2557.08px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1997</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2578.73px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">1998</span></div><div class="tl-timeaxis-tick" style="left: 2600.39px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">1999</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2643.76px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2001</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2665.42px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2002</span></div><div class="tl-timeaxis-tick" style="left: 2687.07px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2003</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2708.73px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2004</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2730.44px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2005</span></div><div class="tl-timeaxis-tick" style="left: 2752.1px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2006</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2773.75px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2007</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2795.41px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2008</span></div><div class="tl-timeaxis-tick" style="left: 2817.12px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2009</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2860.43px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2011</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2882.09px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2012</span></div><div class="tl-timeaxis-tick" style="left: 2903.8px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 1;">2013</span></div><div class="tl-timeaxis-tick tl-timeaxis-tick-hidden" style="left: 2925.46px;"><span class="tl-timeaxis-tick-text tl-animate-opacity" style="opacity: 0;">2014</span></div></div></div></div></div><div class="tl-timeaxis-background"></div></div><div class="tl-menubar" style="top: 475px;"><button class="tl-menubar-button" type="button" aria-label="Zoom in" aria-description="Show less than 1874 to 1926"><span class="tl-icon-zoom-in"></span></button><button class="tl-menubar-button" type="button" aria-label="Zoom out" aria-description="Show more than 1874 to 1926"><span class="tl-icon-zoom-out"></span></button><button class="tl-menubar-button" type="button" aria-label="Go to the last slide"><span class="tl-icon-goend"></span></button><button class="tl-menubar-button" type="button" aria-label="Return to Title"><span class="tl-icon-goback"></span></button></div><div class="tl-attribution"><a href="https://timeline.knightlab.com" target="_blank" rel="noopener"><span class="tl-knightlab-logo"></span>TimelineJS</a></div></div>
+ -->
+									<script>
+										/* Execute the magnify function: */
+										magnify("myimage", 3);
+										/* Specify the id of the image, and the strength of the magnifier glass: */
+									</script>
+								</body>
+								</html>

@@ -1,0 +1,420 @@
+
+/* studia come mettere l'header a scorrimento in stile carousel - seleziona 4 immagini
+    .header { +/
+    background-image: url('img/Futuristi italiani.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image 
+    background-size: cover; /* This property ensures that the background image covers the entire header 
+    background-position: center; /* Center the background image 
+    height: 250px; /* Set the height of your header */
+    /* Add more styling properties as needed 
+    } */
+/*
+nav {
+	background-color: white;
+	color: white;	
+  } */
+
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }   
+
+
+  /* stile header*/ 
+  header {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #123;
+    color: white;
+    min-height: 50vh;
+    padding: 0px;
+  }
+
+  .header a.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+.header a:hover {
+  background-color: white;
+  color: #123;
+}
+
+
+  .main-heading {
+    max-width: 800px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .header {
+    overflow: hidden;
+    background-color: #0b1622;
+    padding: 10px 20px;
+  }
+
+
+
+  .header a {
+    float: left;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 30px;
+    border-radius: 3px;
+  }
+
+  .header-right {
+    float: right;
+    display: flex;
+    align-items: center;
+  }
+  /* fine stile header*/
+
+
+  /* Stile per il contenitore della barra di ricerca */
+  .search-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Stile per l'icona della lente d'ingrandimento */
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Distanza dal bordo destro */
+    transform: translateY(-50%);
+    color: #666; /* Colore dell'icona */
+    cursor: pointer;
+  }
+
+  /* Stile per la casella di ricerca */
+  .search-input {
+    padding-right: 30px; /* Spazio per l'icona */
+  }
+
+
+  .clickable-button {
+    cursor: pointer; /* Imposta il cursore a forma di mano per indicare che il pulsante è cliccabile */
+    padding: 20px 30px; /* Aggiungi spazio intorno al testo del pulsante per una migliore esperienza utente */
+    border-radius: 5px;
+    background-color: white; /* Imposta il colore di sfondo del pulsante */
+    border: none; /* Rimuovi il bordo del pulsante */
+    color: #99ccff; /* Imposta il colore del testo del pulsante */
+    text-align: center; /* Centra il testo all'interno del pulsante */
+    text-decoration: none; /* Rimuovi eventuali sottolineature del testo del pulsante */
+    display: block; /* Assicura che il pulsante si adatti al testo all'interno di esso */
+    margin-right: 30px
+  }
+
+
+
+  .search-container {
+    text-align: center; /* Centra il contenuto della barra di ricerca */
+    margin-top: 20px
+    padding: 50px 20px 20px 20px; /* Aggiunge spazio sopra la barra di ricerca */
+  }
+
+
+  .carousel-inner {
+    text-align: center; /* Centra il contenuto della barra di ricerca */
+    margin-left: 200px
+    padding: 100px 700px 70px 100px; /* Aggiunge spazio sopra la barra di ricerca */
+    width: 400px;
+    height: 350px
+  }
+
+
+
+  /* qui si inseriscono codici per mettere una search bar*/
+  input[type="text"] {
+    padding: 8px; /* Aggiunge spazio intorno al campo di input */
+    border-radius: 5px; /* Aggiunge angoli arrotondati al campo di input */
+    border: 1px solid #ccc; /* Aggiunge un bordo grigio chiaro al campo di input */
+  }
+
+  button[type="submit"] {
+    padding: 8px 0px; /* Aggiunge spazio intorno al pulsante */
+    border: none; /* Rimuove il bordo del pulsante */
+    border-radius: 5px; /* Aggiunge angoli arrotondati al pulsante */
+    background-color: #4CAF50; /* Imposta il colore di sfondo del pulsante */
+    color: white; /* Imposta il colore del testo del pulsante */
+    cursor: pointer; /* Imposta il cursore a forma di mano quando il mouse passa sopra il pulsante */
+  }
+  /*fine della search bar*/
+
+
+
+
+  /*altro tentativo carousel*/
+  .slider-container
+  {
+    width: 800px;
+    height: 400px;
+    background-color: gray;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .image-container
+  {
+    width: 2400px;
+    background-color: lightgray;
+    height: 400px;
+    clear: both;
+    position: relative;
+
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
+  }
+
+  #slider-Ginna:target ~ .image-container
+  {
+   left: 0px;
+ }
+ #slider-Conti:target ~ .image-container
+ {
+   left: -800px;
+ }
+ #slider-Manifesti:target ~ .image-container
+ {
+   left: -1600px;
+ }
+
+ .button-container
+ {
+   position: relative;
+   top: -20px;
+ }
+ .slider-change
+ {
+   display: inline-block;
+   height: 10px;
+   width: 10px;
+   border-radius: 5px;
+   background-color: gray;
+ }
+
+
+ .carousel-captionl-inner > .item > img,
+ .carousel-inner > .item > a > img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.carousel-item img {
+  margin: auto; /* Imposta il margine automaticamente per centrare l'immagine */
+  display: block; /* Imposta l'immagine come blocco per permettere il margine automatico */
+}
+
+/* fine secondo tentativo carousel*/
+
+/*decorazione text-box*/
+
+.box-1 {
+  background-color: #123;
+  color: white;
+  text-align: justify; /* Centra il contenuto della barra di ricerca */
+  margin-top: 20px
+  padding: 50px 20px 20px 20px;
+
+}
+
+.testo {
+  background-color: white;
+  color: #123;
+  text-align: justify; /* Centra il contenuto della barra di ricerca */
+  margin-top: 20px
+  padding: 50px 20px 20px 20px;
+
+}
+
+.box-2 {
+  background-color: #123;
+  color: white;
+  text-align: justify; /* Centra il contenuto della barra di ricerca */
+  margin-top: 20px
+  padding: 50px 20px 20px 20px;
+
+}
+
+.testo2 {
+  background-color: #123;
+  color: white;
+  float: right;
+  text-align: justify; /* Centra il contenuto della barra di ricerca */
+  margin-top: 20px
+  padding: 50px 20px 20px 20px;
+
+}
+
+/*tentativo card Futuristi italiani*/
+
+.container2 {
+  position: relative;
+  width: 50%;
+}
+
+.image2 {
+  align-content: right;
+  align-self: right;
+  display: block;
+  width: 150%;
+  height: auto;
+  padding-right: 20px;
+  margin-right: 40px;
+}
+
+.overlay2 {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: lightgray;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.container2:hover .overlay2 {
+  width: 100%;
+  left: 0;
+}
+
+.text2 {
+  color: #123;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+/* fine tentativo */
+/* i Manifesti*/
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 250px;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: lightgray;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  width: 270px;
+}
+
+.text {
+  color: #123;
+  font-size: 30px;
+  font: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: pre;
+}
+/*fine tentativo card*/
+
+figure {
+  position: relative;
+  float: right; float: top;
+  left: 20px;
+  top: 20px;
+  margin: 20px;
+  padding-right: 30px;
+  padding-bottom: 100px;
+}
+figcaption {
+ width: auto;
+ height: auto;
+ background-color: none;
+ float: right;
+ left: 20px;
+  top: 20px;
+  margin: 20px;
+  padding-right: 30px;
+  padding-bottom: 100px;
+}
+
+
+
+
+.button {
+  width: 100px;
+  height: 100px;
+  margin: 100px;
+}
+
+/*
+footer p {
+	background color: #99ccff;
+	color:#e6e6e6;
+	float: center;
+  }*/
+
+  footer {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #123;
+    color: white;
+    padding: 40px 0;
+  }
+
+  .container3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo-section img {
+    width: 100px;
+    margin-right: 20px;
+  }
+
+  .contact-section {
+    text-align: right;
+  }
+
+  .contact-section h3 {
+    margin-bottom: 10px;
+  }
+
+  .contact-section p {
+    margin: 5px 0;
+  }
+
+  .copyright p {
+    align-content: center;
+    margin-right: 350px;
+    text-align: center;
+
+  }

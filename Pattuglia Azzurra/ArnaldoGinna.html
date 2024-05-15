@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title> Arnaldo Ginna </title>
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="StileGinna.css">
+	<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"> <!--abbiamo qui specificato il link che tagghi il set degli elementi DC-->
+	<meta name="DC.Title" content="La Pattuglia Azzurra">
+	<meta name="DC.Creator" content="Eleonora Fortuna">
+	<meta name="DC.Subject" content="Arte futurista del primo Novecento in Toscana">
+	<meta name="DC.Description" content="Questo sito si propone di raccogliere informazioni legate al gruppo futurista fiorentino della Pattuglia Azzurra.">
+	<meta name="DC.Publisher" content="Università di Bologna">
+	<meta name="DC.Date" content="2023">
+	<meta name="DC.Type" content="Sito Web">
+	<meta name="DC.Type" content="Immagini">
+	<meta name="DC.Type" content="Catalogo di opere d'arte">
+	<meta name="DC.Format" content="HTML">
+	<meta name="DC.Language" content="Italiano">
+	<meta name="DC.Coverage" content="1914-1916">
+	<meta name="DC.Coverage" content="Firenze">
+	<meta name="DC.Coverage" content="Toscana">
+	<meta name="DC.Rights" content="Accesso Libero Creative Commons"></head>
+	<body>
+
+</head>
+
+ <header>
+
+    <div class="header">
+
+      <a href="index.html" target="_blank">La Pattuglia azzurra </a> 
+
+      <div class="header-right">
+        <a href="GliArtisti.html" target="_blank">Gli artisti</a>
+        <a href= "OperePattuglia.html" target="_blank">Le opere</a>
+        <a href="">I manifesti</a>
+        <a href="#">I luoghi</a>
+
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Cerca...">
+            <i class="fas fa-search search-icon"></i> <!--Icona della lente d'ingrandimento -->
+          </div>
+
+        </div>
+
+      </div>
+</header>
+
+
+<body>
+	<!-- inizio tentativo linea del tempo 
+	<div class="timeline">
+  <div class="event">
+    <div class="content">
+      <div class="date">1990</div>
+      <p>Descrizione dell'evento 1</p>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="content">
+      <div class="date">2000</div>
+      <p>Descrizione dell'evento 2</p>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="content">
+      <div class="date">2010</div>
+      <p>Descrizione dell'evento 3</p>
+    </div>
+  </div>
+</div>
+
+fine tentativo linea del tempo -->
+<section>
+	<div class="container">
+		<div class="col1">
+			<h2 id="biography"><a href="pagina1.html" class="current"><span class="clickable-word">Cenni</span></a></h2>
+			<script type="text/javascript">
+				if (document.getElementById('biography')) { // Se sì, evidenzia la parola "cenni"
+					var biographyText = document.getElementById('biography').innerHTML;
+				var highlightedText = biographyText.replace(/cenni/gi, '<span class="highlight">Cenni biografici</span>');
+				document.getElementById('biography').innerHTML = highlightedText;
+			}</script>
+			<h2><a href="Le opere.html"><br>Le opere</span></a></h2>
+			<h2><span class="clickable-word"><br>Gli scritti</br></span></h2>
+			<h2><span class="clickable-word"><br>La bibliografia</br></span></h2>
+		</div>
+		<div class="col2">
+			<h2>Cenni biografici</h2>
+			
+			<div class="timeline">
+				<div class="simbolo simbolo-start"></div> <!-- Simbolo di inizio -->
+
+				<div class="event">
+					<div class="content">
+						<div class="date"><strong>7 maggio 1890</strong></div>
+						<p>Arnaldo Ginanni Corradini nasce a Ravenna da una famiglia nobile, che gli consentirà di proseguire gli studi presso l'Accademia di Belle Arti di Ravenna.</p>
+					</div>
+				</div>
+
+				<div class="event">
+					<div class="content">
+						<div class="date"><strong>1914</strong></div>
+						<p>Consegue il Diploma all’Accademia delle Belle Arti di Firenze. Diventa uno dei principali esponenti della cosiddetta ‘Pattuglia Azzurra’ o ‘Secondo Futurismo Fiorentino’. In questo anno viene ribattezzato da Giacomo Balla con un nome d’arte, quello di Ginna, da ginnastica. Si interessa di mobilio futurista realizzando alcuni arredamenti.</p>
+					</div>
+				</div>
+
+				<div class="event">
+					<div class="content">
+						<div class="date"><strong>1916</strong></div>
+						<p>Partecipa alla fondazione della rivista «L’Italia Futurista», per la quale disegna illustrazioni, scrive articoli, saggi, testi teorici, commedie sperimentali, racconti sintetici, poesie. Produce e dirige il film Vita Futurista.</p>
+					</div>
+				</div>
+
+				<div class="event">
+					<div class="content">
+						<div class="date"><strong>1920</strong></div>
+						<p>Ginna si trasferisce a Roma, dove conosce Maria, la sua futura moglie.</p>
+					</div>
+				</div>
+
+				<div class="event">
+					<div class="content">
+						<div class="date"><strong>26 settembre 1982</strong></div>
+						<p>Arnaldo Ginna muore all’età di 92 anni.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>	
+
+		<figure>
+			<img class="immagine" src="img/ArnaldoGinna.jpg" alt="Foto Arnaldo Ginanni Corradini">	
+			<figcaption>Foto di Arnaldo Ginna nel suo studio.</figcaption>
+		</figure>
+
+	</div>
+</div>
+</section>
+</body>
+
+<footer>
+	<div class="container2">
+		<div class="logo-section">
+			<img src="img/LogoUnibo.png" alt="Logo 1">
+
+		</div>
+		<div class="contact-section">
+			<h3>Contatti</h3>
+			<p>Indirizzo: Via del Corso, 123</p>
+			<p>Email: eleonora.fortuna@studio.unibo.it</p>
+			<p>Telefono: 123-456789</p>
+
+			<div class="copyright">
+				<p>&copy; Copyright Eleonora Fortuna 2023 - Corso di Digital Humanities e Patrimonio Culturale</p>
+			</div>
+
+		</div>
+	</div>
+</footer>
+
+

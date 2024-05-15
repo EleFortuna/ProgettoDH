@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc> <!-- file Descriprion-->
+			<titleStmt>
+				<title>Pesi, misure e prezzi del genio artistico.</title>
+				<author>Corra, Bruno, 1892-1976</author>
+			</titleStmt>
+			<respStmt>
+				<resp> Direzione del Movimento Futurista </resp>
+				<name xml:id="Lacerba"> Lacerba </name>
+			</respStmt>
+
+			<publicationStmt>
+				<distributor>
+					<name>Direzione del Movimento Futurista</name>
+
+					<address>
+						<addrLine>Lacerba Giornale Futurista</addrLine>
+						<addrLine>25, Via Nazionale</addrLine>
+						<addrLine>Firenze</addrLine>
+					</address>
+					<availability status="free">
+						<licence target="No licence"></licence>
+					</availability>
+				</distributor>
+			</publicationStmt>
+
+			<sourceDesc> <!--- OBBLIGATORIO! -->
+				<bibl>
+					<title>Pesi, misure e prezzi del genio artistico.</title>
+					<author>Corra, Bruno, 1892-1976</author>
+					<pubPlace>Firenze
+					</pubPlace>
+					<publisher>Lacerba</publisher>
+					<date when="pubblicato">11 marzo 1914</date>
+					<editor
+						role="">Direzione del Movimento Futurista</editor>
+						<editor role="..."></editor>
+					</bibl>
+				</sourceDesc>
+			</fileDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<p xml:lang="it" type="Manifesto"> La critica non è mai esistita e non esiste. La pseudocritica passatista che ci ha stomacati sino a ieri,
+				non è stata altro che vizio solitario di impotenti, sfogo bilioso di artisti mancati, chiacchiera inutile, dogmatismo borioso in nome di autorità inesistenti.
+				Noi futuristi abbiamo sempre negato ogni diritto di giodizio a
+				questa attività anfibia, uterina e imbecille. La prima critica nasce oggi in Italia per opera del Futurismo. Ma
+				poichè la parola critico e critica sono ormai disonorate dall'uso immondo che ne è stato fatto, noi futuristi le 
+				aboliamo definitivamente per adorrare in loro vece i termini <strong>misurazione, misuratore</strong>.
+			</body>
+		</text>
+	</TEI>
+
+
+<!--	<metadata
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:dc="http://purl.org/dc/elements/1.1/">
+		<dc:title>Pesi, misure e prezzi del genio artistico. Manifesto Futurista.</dc:title>
+		<dc:creator>Bruno Corra</dc:creator>
+		<dc:creator>Emilio Settimelli</dc:creator>
+		<dc:subject>Arte vista come misurabile</dc:subject>
+		<dc:description>manifesto sottoscritto da Corra col nome di "Bruno Corradini". Manifesto pubblicato in volantino nella sola versione italiana. Prima edizione.</dc:description>
+		<dc:publisher> Direzione del Movimento Futurista</dc:publisher>
+		<dc:contributor>Stab.Tip. Taveggia - Milano Via Ospedale 3</dc:contributor>
+		<dc:date>11 marzo 1914</dc:date>
+		<dc:type>Volantino</dc:type>
+		<dc:format>29,2x23,2 cm.</dc:format>
+		<dc:source>http://www.arengario.it/opera/pesi-misure-e-prezzi-del-genio-artistico-manifesto-futurista-4789/</dc:source>
+		<dc:language>Italiano</dc:language>
+
+	</metadata> -->
+
+<!--- ELIMINABILE QUANDO HAI FINITO
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Huckleberry Finn. Digital Edition</title>
+				<author>Twain, Mark. 1859</author> <!-- autore del testo sempre colui che è responsabiile della creazione intellettuale dell'opera
+				<respStmt>
+					<resp> editore </resp>
+					<name xml:id="TbE"> TEI by Example </name>
+				</respStmt>
+				<respStmt> <!--(responsibility) contains a phrase describing the nature of a person's intellectual responsibility, or an organization's role in the production or distribution of a work.
+					<resp> marcatura </resp>
+					<name xml:id="EF"> Eleonora Fortuna </name>
+				</respStmt>
+			</titleStmt>
+
+			<publicationStmt> <!-- abbiamo TEI by example che ci ha fornito l'estratto, ma c'è il progetto Guthenberg dietro, quindi dobbiamo decidere noi a quale delle due dare importanza--
+				<p> </p>
+			</publicationStmt>
+
+			<sourceDesc>
+				<p>
+					<!--supply information about the source--
+				</p>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<p xml:lang="en" n="9"> Then the king begins to work his jaw again, and says how him and his nieces would be glad if a few of the main principal friends of the family would take supper here with them this evening, and help set up with the ashes of the diseased; and says if his poor brother laying yonder could speak he knows who he would name, for they was names that was very dear to him, and mentioned often in his letters; and so he will name the same, to wit, as follows, vizz.:—Rev. 
+				<choice>
+					<abbr>Mr.</abbr>
+					<expan> Mister </expan>
+				</choice>Hobson, and 
+				<name type="person" ref="#dlh">Deacon Lot Hovey </name>, and <abbr>Mr.</abbr><expan>Mister</expan> Ben Rucker, and <name type="person">Abner Shackleford</name>, and Levi Bell, and <abbr>Dr. </abbr><expan> Doctor </expan> Robinson, and their wives, and the widow Bartley.Example 1. A fragment of Huckleberry Finn.
+				<note n="1" type="bibl-ref">Twain, Mark. 1859. Huckleberry Finn. London: John Murray. Part 5, Chapter XXV. Text freely available on Gutenberg Project at https://www.gutenberg.org/files/76/76-h/76-h.htm.</note></p>
+			</body>
+		</text>
+	</TEI> -->

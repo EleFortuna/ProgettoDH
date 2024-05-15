@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linea del tempo</title>
+  <style>
+    /* Stile per il contenitore della linea del tempo */
+    .timeline {
+      position: relative; /* Posizione relativa per posizionare gli elementi assoluti */
+      list-style: none; /* Rimuove i punti dall'elenco */
+      padding: 0;
+      margin: 40px 0;
+    }
+
+    /* Stile per gli elementi della linea del tempo */
+    .timeline li {
+      position: relative;
+      width: 50%; /* Larghezza relativa */
+      display: table;
+      float: left;
+      padding: 20px 40px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    /* Stile per le frecce tra gli elementi */
+    .timeline li::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      background-color: #ccc;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Stile per il contenuto delle date */
+    .timeline li span {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    /* Stile per il contenuto delle descrizioni */
+    .timeline li p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<ul class="timeline">
+  <!-- Elemento 1 -->
+  <li>
+    <span>1990</span>
+    <p>Descrizione dell'evento 1</p>
+  </li>
+
+  <!-- Elemento 2 -->
+  <li>
+    <span>2000</span>
+    <p>Descrizione dell'evento 2</p>
+  </li>
+
+  <!-- Elemento 3 -->
+  <li>
+    <span>2010</span>
+    <p>Descrizione dell'evento 3</p>
+  </li>
+
+  <!-- Aggiungi altri elementi secondo necessità -->
+</ul>
+
+</body>
+</html>
